@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicaciones | MSc. Morillo Rojas Joé Gregorio - Docente e Investigador</title>
+    
+    <!-- Preload -->
+    <link rel="preload" href="assets/css/normalize.css" as="style">
+    <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="assets/css/responsive.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos específicos para publicaciones */
+        .publications-hero {
+            background: linear-gradient(135deg, #0a3d62 0%, #1e5799 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .publications-hero h1 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .publications-hero p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .publications-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+        
+        .publications-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        .filters-bar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .search-box {
+            position: relative;
+            max-width: 300px;
+        }
+        
+        .search-box input {
+            padding-left: 2.5rem;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+        }
+        
+        .publications-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .publication-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid #3498db;
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-left-color: #e74c3c;
+        }
+        
+        .publication-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .publication-type {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .type-article {
+            background: #e1f0fa;
+            color: #3498db;
+        }
+        
+        .type-conference {
+            background: #fdebd0;
+            color: #e67e22;
+        }
+        
+        .type-book {
+            background: #e8f8f5;
+            color: #16a085;
+        }
+        
+        .type-report {
+            background: #f6ddcc;
+            color: #d35400;
+        }
+        
+        .publication-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            line-height: 1.3;
+        }
+        
+        .publication-authors {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .publication-highlight {
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        .publication-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .publication-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .publication-abstract {
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.6;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .publication-keywords {
+            margin-bottom: 1.5rem;
+        }
+        
+        .keywords-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+        
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        
+        .keyword {
+            background: #e1f0fa;
+            color: #2c3e50;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .publication-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .publication-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.2rem;
+            background: #e1f0fa;
+            border-radius: 4px;
+            color: #3498db;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .publication-link:hover {
+            background: #3498db;
+            color: white;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            gap: 0.5rem;
+        }
+        
+        .pagination-button {
+            padding: 0.7rem 1.2rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .pagination-button:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .pagination-button.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .metrics-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-icon {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .metric-label {
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 992px) {
+            .publications-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .filters-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .publications-stats {
+                gap: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .publication-header {
+                flex-direction: column;
+            }
+            
+            .publication-links {
+                flex-direction: column;
+            }
+            
+            .publication-link {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/img/logo.svg" alt="Logo portafolio" width="150" height="40">
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="docencia.html" class="nav-link">Docencia</a></li>
+                    <li class="nav-item"><a href="investigacion.html" class="nav-link">Investigación</a></li>
+                    <li class="nav-item"><a href="publicaciones.html" class="nav-link active">Publicaciones</a></li>
+                    <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section para Publicaciones -->
+        <section class="publications-hero">
+            <div class="container">
+                <h1>Producción Académica</h1>
+                <p>Artículos científicos, conferencias, informes técnicos y otros materiales académicos que contribuyen al avance del conocimiento en acuacultura y ciencias del mar.</p>
+                
+                <div class="publications-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Publicaciones</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">350+</div>
+                        <div class="stat-label">Citas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Índice H</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Conferencias</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Publicaciones -->
+        <section class="publications-section">
+            <div class="container">
+                <div class="filters-bar">
+                    <div class="filter-group">
+                        <label for="type-filter">Tipo de publicación</label>
+                        <select id="type-filter">
+                            <option value="all">Todas las publicaciones</option>
+                            <option value="article">Artículos científicos</option>
+                            <option value="conference">Conferencias</option>
+                            <option value="book">Capítulos de libros</option>
+                            <option value="report">Informes técnicos</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="year-filter">Año</label>
+                        <select id="year-filter">
+                            <option value="all">Todos los años</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="topic-filter">Tema</label>
+                        <select id="topic-filter">
+                            <option value="all">Todos los temas</option>
+                            <option value="bioinformatics">Bioinformática</option>
+                            <option value="expert-systems">Sistemas expertos</option>
+                            <option value="plankton">Planctonología</option>
+                            <option value="biochemistry">Bioquímica acuática</option>
+                            <option value="modeling">Modelado ecológico</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group search-box">
+                        <label for="search">Buscar publicaciones</label>
+                        <div class="search-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <input type="text" id="search" placeholder="Título, autor o palabra clave">
+                    </div>
+                </div>
+                
+                <div class="publications-container">
+                    <!-- Publicación 1 -->
+                    <div class="publication-item">
+                        <div class="publication-header">
+                            <div class="publication-type type-article">Artículo científico</div>
+                            <div class="publication-meta">
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-calendar-alt"></i> 2023
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-book"></i> Aquaculture Engineering
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-quote-right"></i> Factor de impacto: 3.8
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-star"></i> 15 citas
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="publication-title">Desarrollo de un sistema experto basado en reglas para el diagnóstico de enfermedades en camarones cultivados</h3>
+                        
+                        <div class="publication-authors">
+                            <span class="publication-highlight">Morillo J.</span>, González, M., Pérez, L., Rodríguez, C.
+                        </div>
+                        
+                        <div class="publication-abstract">
+                            <strong>Resumen:</strong> Este estudio presenta el desarrollo e implementación de un sistema experto para el diagnóstico temprano de enfermedades en camarones cultivados. El sistema integra datos de calidad de agua, observaciones clínicas y parámetros ambientales utilizando un motor de inferencia basado en reglas. Validado en 12 granjas camaroneras, demostró una precisión del 92% en la identificación de enfermedades comunes, reduciendo las pérdidas en un 35% comparado con métodos tradicionales.
+                        </div>
+                        
+                        <div class="publication-keywords">
+                            <div class="keywords-title">Palabras clave:</div>
+                            <div class="keywords-list">
+                                <span class="keyword">Sistemas expertos</span>
+                                <span class="keyword">Acuacultura</span>
+                                <span class="keyword">Diagnóstico de enfermedades</span>
+                                <span class="keyword">Camaronicultura</span>
+                                <span class="keyword">Inteligencia artificial</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-links">
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-external-link-alt"></i> Ver en ScienceDirect
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-file-pdf"></i> Descargar PDF
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-code"></i> Repositorio de código
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-quote-right"></i> Citar publicación
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Publicación 2 -->
+                    <div class="publication-item">
+                        <div class="publication-header">
+                            <div class="publication-type type-article">Artículo científico</div>
+                            <div class="publication-meta">
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-calendar-alt"></i> 2022
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-book"></i> Journal of Applied Aquaculture
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-quote-right"></i> Factor de impacto: 2.5
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-star"></i> 8 citas
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="publication-title">Análisis metagenómico de microbiomas intestinales en peces nativos: correlación con dietas funcionales</h3>
+                        
+                        <div class="publication-authors">
+                            <span class="publication-highlight">Morillo J.</span>, Fernández, A., Martínez, R.
+                        </div>
+                        
+                        <div class="publication-abstract">
+                            <strong>Resumen:</strong> Investigación que aplicó técnicas de secuenciación de última generación para analizar la diversidad microbiana intestinal en tres especies de peces nativos bajo diferentes regímenes alimenticios. Los resultados revelaron correlaciones significativas entre la composición del microbioma, la utilización de nutrientes y la resistencia a enfermedades, proporcionando bases científicas para el desarrollo de dietas funcionales optimizadas.
+                        </div>
+                        
+                        <div class="publication-keywords">
+                            <div class="keywords-title">Palabras clave:</div>
+                            <div class="keywords-list">
+                                <span class="keyword">Metagenómica</span>
+                                <span class="keyword">Microbioma intestinal</span>
+                                <span class="keyword">Peces nativos</span>
+                                <span class="keyword">Nutrición acuícola</span>
+                                <span class="keyword">Bioinformática</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-links">
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-external-link-alt"></i> Ver en Taylor & Francis
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-file-pdf"></i> Descargar PDF
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-database"></i> Acceder a datos
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Publicación 3 -->
+                    <div class="publication-item">
+                        <div class="publication-header">
+                            <div class="publication-type type-conference">Conferencia</div>
+                            <div class="publication-meta">
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-calendar-alt"></i> 2023
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-book"></i> Congreso Latinoamericano de Acuacultura
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-map-marker-alt"></i> Cartagena, Colombia
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="publication-title">Implementación de sensores IoT y análisis predictivo para la gestión de calidad de agua en acuicultura intensiva</h3>
+                        
+                        <div class="publication-authors">
+                            Pérez, L., <span class="publication-highlight">Morillo J.</span>, González, M.
+                        </div>
+                        
+                        <div class="publication-abstract">
+                            <strong>Resumen:</strong> Presentación de un sistema integrado de monitoreo en tiempo real para granjas acuícolas que combina sensores IoT, transmisión de datos y algoritmos predictivos. El sistema demostró capacidad para anticipar eventos críticos con 4 horas de antelación, permitiendo intervenciones preventivas que redujeron la mortalidad en un 28% en ensayos controlados.
+                        </div>
+                        
+                        <div class="publication-keywords">
+                            <div class="keywords-title">Palabras clave:</div>
+                            <div class="keywords-list">
+                                <span class="keyword">IoT</span>
+                                <span class="keyword">Calidad de agua</span>
+                                <span class="keyword">Análisis predictivo</span>
+                                <span class="keyword">Acuacultura intensiva</span>
+                                <span class="keyword">Tecnología acuícola</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-links">
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-file-powerpoint"></i> Descargar presentación
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-video"></i> Ver grabación
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-file-pdf"></i> Resumen extendido
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Publicación 4 -->
+                    <div class="publication-item">
+                        <div class="publication-header">
+                            <div class="publication-type type-article">Artículo científico</div>
+                            <div class="publication-meta">
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-calendar-alt"></i> 2021
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-book"></i> Ecological Modelling
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-quote-right"></i> Factor de impacto: 3.9
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-star"></i> 22 citas
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="publication-title">Modelo predictivo de floraciones de microalgas nocivas utilizando machine learning y datos oceanográficos</h3>
+                        
+                        <div class="publication-authors">
+                            <span class="publication-highlight"> Morillo J.</span>, Martínez, R., López, J.
+                        </div>
+                        
+                        <div class="publication-abstract">
+                            <strong>Resumen:</strong> Desarrollo y validación de un modelo predictivo para floraciones de microalgas nocivas en aguas costeras tropicales. Combinando datos satelitales, mediciones in situ y algoritmos de machine learning (XGBoost y redes neuronales), el modelo logró una precisión del 89% en la predicción de eventos con 72 horas de antelación, proporcionando una herramienta valiosa para la gestión acuícola y costera.
+                        </div>
+                        
+                        <div class="publication-keywords">
+                            <div class="keywords-title">Palabras clave:</div>
+                            <div class="keywords-list">
+                                <span class="keyword">Floraciones algales</span>
+                                <span class="keyword">Machine learning</span>
+                                <span class="keyword">Oceanografía</span>
+                                <span class="keyword">Modelado predictivo</span>
+                                <span class="keyword">Monitoreo ambiental</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-links">
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-external-link-alt"></i> Ver en Elsevier
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-file-pdf"></i> Descargar PDF
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-chart-line"></i> Visualizador de datos
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Publicación 5 -->
+                    <div class="publication-item">
+                        <div class="publication-header">
+                            <div class="publication-type type-book">Capítulo de libro</div>
+                            <div class="publication-meta">
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-calendar-alt"></i> 2020
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-book"></i> Avances en Bioinformática Aplicada
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-user-edit"></i> Editorial Académica Española
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="publication-title">Herramientas bioinformáticas para el análisis de datos ómicos en especies acuícolas</h3>
+                        
+                        <div class="publication-authors">
+                            Rodríguez, C., <span class="publication-highlight">Morillo J.</span>
+                        </div>
+                        
+                        <div class="publication-abstract">
+                            <strong>Resumen:</strong> Capítulo que revisa y evalúa herramientas bioinformáticas para el análisis de datos genómicos, transcriptómicos y proteómicos en especies acuícolas. Se presentan flujos de trabajo optimizados, estrategias para especies no modelo y casos de estudio aplicados a programas de mejoramiento genético y manejo sanitario en acuacultura.
+                        </div>
+                        
+                        <div class="publication-keywords">
+                            <div class="keywords-title">Palabras clave:</div>
+                            <div class="keywords-list">
+                                <span class="keyword">Bioinformática</span>
+                                <span class="keyword">Genómica</span>
+                                <span class="keyword">Transcriptómica</span>
+                                <span class="keyword">Mejoramiento genético</span>
+                                <span class="keyword">Acuacultura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-links">
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-book"></i> Ver libro
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-file-pdf"></i> Descargar capítulo
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-code"></i> Scripts de análisis
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Publicación 6 -->
+                    <div class="publication-item">
+                        <div class="publication-header">
+                            <div class="publication-type type-report">Informe técnico</div>
+                            <div class="publication-meta">
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-calendar-alt"></i> 2019
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-university"></i> Universidad de Oriente
+                                </div>
+                                <div class="publication-meta-item">
+                                    <i class="fas fa-file-contract"></i> Proyecto CONICIT-UDO
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="publication-title">Manual de buenas prácticas para el uso de paquetes informáticos en investigación acuícola</h3>
+                        
+                        <div class="publication-authors">
+                            <span class="publication-highlight">[Tu Nombre]</span>, Equipo de Investigación
+                        </div>
+                        
+                        <div class="publication-abstract">
+                            <strong>Resumen:</strong> Guía práctica que detalla metodologías, herramientas y flujos de trabajo para el procesamiento y análisis de datos acuícolas utilizando software libre (R, Python, QGIS). Incluye casos aplicados a análisis de crecimiento, calidad de agua, genética de poblaciones y modelado ecológico, con ejemplos reproducibles y datasets de muestra.
+                        </div>
+                        
+                        <div class="publication-keywords">
+                            <div class="keywords-title">Palabras clave:</div>
+                            <div class="keywords-list">
+                                <span class="keyword">Buenas prácticas</span>
+                                <span class="keyword">Análisis de datos</span>
+                                <span class="keyword">Software libre</span>
+                                <span class="keyword">Reproducibilidad</span>
+                                <span class="keyword">Acuacultura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-links">
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-file-pdf"></i> Descargar informe
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fas fa-database"></i> Datos de ejemplo
+                            </a>
+                            <a href="#" class="publication-link">
+                                <i class="fab fa-github"></i> Repositorio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-button active">1</button>
+                    <button class="pagination-button">2</button>
+                    <button class="pagination-button">3</button>
+                    <button class="pagination-button">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Métricas académicas -->
+        <section class="metrics-section">
+            <div class="container">
+                <h2 class="section-title">Métricas Académicas</h2>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="metric-value">25</div>
+                        <div class="metric-label">Publicaciones totales</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="metric-value">350+</div>
+                        <div class="metric-label">Citas totales</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="metric-value">8</div>
+                        <div class="metric-label">Índice H</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="metric-value">15</div>
+                        <div class="metric-label">Estudiantes dirigidos</div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-outline">
+                        <i class="fab fa-google-scholar"></i> Ver perfil en Google Scholar
+                    </a>
+                    <a href="#" class="btn btn-outline">
+                        <i class="fab fa-researchgate"></i> Perfil en ResearchGate
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/img/logo.svg" alt="Logo portafolio" width="120" height="32">
+                    <p>Portafolio profesional de Morillo Rojas José Gregorio</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="docencia.html">Docencia</a></li>
+                        <li><a href="investigacion.html">Investigación</a></li>
+                        <li><a href="publicaciones.html">Publicaciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <address>
+                        <p>Escuela de Ciencias Aplicadas del Mar</p>
+                        <p>Universidad de Oriente</p>
+                        <p>Email: <a href="mailto:josemorillo@udo.edu.ve">josemorillo@udo.edu.ve</a></p>
+                    </address>
+                </div>
+                <div class="footer-social">
+                    <h4>Redes académicas</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="#" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; <span id="year"></span> Morillo Rojas José Gregorio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome (carga diferida) -->
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous" defer></script>
+    
+    <!-- JavaScript principal -->
+    <script src="../assets/js/main.js" defer></script>
+    
+    <script>
+        // Funcionalidad para el filtrado de publicaciones
+        document.addEventListener('DOMContentLoaded', function() {
+            // Actualizar año en el footer
+            const yearElement = document.getElementById('year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+            
+            // Filtros de publicaciones
+            const typeFilter = document.getElementById('type-filter');
+            const yearFilter = document.getElementById('year-filter');
+            const topicFilter = document.getElementById('topic-filter');
+            const searchInput = document.getElementById('search');
+            const publicationItems = document.querySelectorAll('.publication-item');
+            
+            function filterPublications() {
+                const typeValue = typeFilter.value;
+                const yearValue = yearFilter.value;
+                const topicValue = topicFilter.value;
+                const searchValue = searchInput.value.toLowerCase();
+                
+                publicationItems.forEach(item => {
+                    const itemType = item.querySelector('.publication-type').classList[1].split('-')[1];
+                    const itemYear = item.querySelector('.publication-meta-item:nth-child(1)').textContent;
+                    const itemTopics = item.querySelector('.keywords-list').textContent.toLowerCase();
+                    const itemContent = item.textContent.toLowerCase();
+                    
+                    const typeMatch = typeValue === 'all' || itemType === typeValue;
+                    const yearMatch = yearValue === 'all' || itemYear.includes(yearValue);
+                    const topicMatch = topicValue === 'all' || itemTopics.includes(topicValue);
+                    const searchMatch = searchValue === '' || itemContent.includes(searchValue);
+                    
+                    if (typeMatch && yearMatch && topicMatch && searchMatch) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Event listeners para los filtros
+            typeFilter.addEventListener('change', filterPublications);
+            yearFilter.addEventListener('change', filterPublications);
+            topicFilter.addEventListener('change', filterPublications);
+            searchInput.addEventListener('input', filterPublications);
+            
+            // Paginación
+            const paginationButtons = document.querySelectorAll('.pagination-button');
+            
+            paginationButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    paginationButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    // En una implementación real, aquí se cargaría la página correspondiente
+                });
+            });
+        });
+    </script>
+</body>
+</html>

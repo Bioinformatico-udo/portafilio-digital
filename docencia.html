@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docencia | MSc. Morillo Rojas José Gregorio - Docente e Investigador</title>
+    
+    <!-- Preload -->
+    <link rel="preload" href="assets/css/normalize.css" as="style">
+    <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="assets/css/responsive.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos específicos para docencia.html */
+        .teaching-hero {
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .teaching-hero h1 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .teaching-hero p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .teaching-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+        
+        .courses-section {
+            padding: 4rem 0;
+        }
+        
+        .courses-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .tab-button {
+            padding: 0.8rem 1.8rem;
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active, .tab-button:hover {
+            background: #3498db;
+            color: white;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .course-header {
+            padding: 1.8rem;
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .course-header h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+        
+        .course-level {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #3498db;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+        
+        .course-body {
+            padding: 1.8rem;
+        }
+        
+        .course-description {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .course-resources {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .resources-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .resource-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.7rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .resource-item:hover {
+            background: #e9f7fe;
+        }
+        
+        .resource-icon {
+            width: 36px;
+            height: 36px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .philosophy-section {
+            background: #f8f9fa;
+            padding: 5rem 0;
+        }
+        
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .philosophy-content h2 {
+            margin-bottom: 2rem;
+        }
+        
+        .philosophy-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: #f0f8ff;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .student-work-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .work-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .work-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .work-info {
+            padding: 1.5rem;
+        }
+        
+        .work-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .work-student {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .work-description {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .teaching-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/img/logo.svg" alt="Logo portafolio" width="150" height="40">
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="docencia.html" class="nav-link active">Docencia</a></li>
+                    <li class="nav-item"><a href="investigacion.html" class="nav-link">Investigación</a></li>
+                    <li class="nav-item"><a href="publicaciones.html" class="nav-link">Publicaciones</a></li>
+                    <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section para Docencia -->
+        <section class="teaching-hero">
+            <div class="container">
+                <h1>Docencia Universitaria</h1>
+                <p>Formando la próxima generación de profesionales en ciencias del mar con un enfoque interdisciplinario que integra biología marina, informática y acuacultura.</p>
+                
+                <div class="teaching-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Asignaturas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Años de experiencia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Estudiantes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Asignaturas -->
+        <section class="courses-section">
+            <div class="container">
+                <h2 class="section-title">Asignaturas Impartidas</h2>
+                
+                <div class="courses-tabs">
+                    <div class="tab-button active">Todas</div>
+                    <div class="tab-button">Pregrado</div>
+                    <div class="tab-button">Postgrado</div>
+                    <div class="tab-button">Talleres</div>
+                </div>
+                
+                <div class="courses-grid">
+                    <!-- Bioquímica -->
+                    <div class="course-card fade-in">
+                        <div class="course-header">
+                            <h3>Bioquímica</h3>
+                            <div class="course-level">Pregrado</div>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-description">
+                                <p>Estudio de los procesos bioquímicos en organismos marinos, con énfasis en especies de interés acuícola. Análisis de metabolismo, enzimas y procesos energéticos.</p>
+                            </div>
+                            
+                            <div class="course-resources">
+                                <div class="resources-title">
+                                    <i class="fas fa-book-open"></i> Recursos
+                                </div>
+                                <div class="resources-grid">
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </div>
+                                        <div>Temario completo</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-vial"></i>
+                                        </div>
+                                        <div>Guías de laboratorio</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div>Casos de estudio</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-project-diagram"></i>
+                                        </div>
+                                        <div>Modelos metabólicos</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Planctonología -->
+                    <div class="course-card fade-in delay-1">
+                        <div class="course-header">
+                            <h3>Planctonología</h3>
+                            <div class="course-level">Pregrado</div>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-description">
+                                <p>Identificación y estudio de comunidades planctónicas, su ecología y su importancia en ecosistemas acuáticos. Técnicas de muestreo y análisis con herramientas digitales.</p>
+                            </div>
+                            
+                            <div class="course-resources">
+                                <div class="resources-title">
+                                    <i class="fas fa-book-open"></i> Recursos
+                                </div>
+                                <div class="resources-grid">
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div>Atlas digital</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-microscope"></i>
+                                        </div>
+                                        <div>Guía de identificación</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-code"></i>
+                                        </div>
+                                        <div>Scripts de análisis</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-map-marked-alt"></i>
+                                        </div>
+                                        <div>Mapas de distribución</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Física Aplicada -->
+                    <div class="course-card fade-in delay-2">
+                        <div class="course-header">
+                            <h3>Física Aplicada</h3>
+                            <div class="course-level">Pregrado</div>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-description">
+                                <p>Aplicación de principios físicos a sistemas marinos y acuícolas. Estudio de propiedades del agua, dinámica de fluidos, transferencia de calor y principios de instrumentación.</p>
+                            </div>
+                            
+                            <div class="course-resources">
+                                <div class="resources-title">
+                                    <i class="fas fa-book-open"></i> Recursos
+                                </div>
+                                <div class="resources-grid">
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-calculator"></i>
+                                        </div>
+                                        <div>Calculadoras</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-water"></i>
+                                        </div>
+                                        <div>Simulaciones</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-video"></i>
+                                        </div>
+                                        <div>Video-clases</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-project-diagram"></i>
+                                        </div>
+                                        <div>Problemas resueltos</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Aplicación de Paquetes Informáticos -->
+                    <div class="course-card fade-in delay-3">
+                        <div class="course-header">
+                            <h3>Aplicación de Paquetes Informáticos</h3>
+                            <div class="course-level">Pregrado</div>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-description">
+                                <p>Uso de herramientas informáticas (Python, R, GIS) para análisis de datos oceanográficos y acuícolas. Manipulación de datos, visualización y análisis estadístico aplicado.</p>
+                            </div>
+                            
+                            <div class="course-resources">
+                                <div class="resources-title">
+                                    <i class="fas fa-book-open"></i> Recursos
+                                </div>
+                                <div class="resources-grid">
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fab fa-python"></i>
+                                        </div>
+                                        <div>Notebooks Python</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-chart-bar"></i>
+                                        </div>
+                                        <div>Ejercicios R</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-map"></i>
+                                        </div>
+                                        <div>Proyectos GIS</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div>Conjuntos de datos</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sistemas Expertos -->
+                    <div class="course-card fade-in delay-4">
+                        <div class="course-header">
+                            <h3>Sistemas Expertos</h3>
+                            <div class="course-level">Postgrado</div>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-description">
+                                <p>Desarrollo de sistemas basados en conocimiento para la gestión acuícola. Aplicación de inteligencia artificial para diagnóstico, predicción y toma de decisiones en acuacultura.</p>
+                            </div>
+                            
+                            <div class="course-resources">
+                                <div class="resources-title">
+                                    <i class="fas fa-book-open"></i> Recursos
+                                </div>
+                                <div class="resources-grid">
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-brain"></i>
+                                        </div>
+                                        <div>Casos de estudio</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-code"></i>
+                                        </div>
+                                        <div>Repositorio GitHub</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div>Manuales técnicos</div>
+                                    </a>
+                                    <a href="#" class="resource-item">
+                                        <div class="resource-icon">
+                                            <i class="fas fa-project-diagram"></i>
+                                        </div>
+                                        <div>Diagramas de flujo</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filosofía de enseñanza -->
+        <section class="philosophy-section">
+            <div class="container">
+                <div class="philosophy-content">
+                    <h2 class="section-title">Filosofía de Enseñanza</h2>
+                    
+                    <p>Mi enfoque pedagógico se basa en la integración de conocimientos teóricos con aplicaciones prácticas, fomentando el pensamiento crítico y la resolución de problemas en contextos reales. Creo firmemente en la educación como un proceso colaborativo donde el aprendizaje significativo ocurre a través de la experiencia directa y la reflexión.</p>
+                    
+                    <p>En mis clases, priorizo:</p>
+                    
+                    <div class="quote">
+                        "La fusión de la biología marina con la tecnología informática no es solo un método de enseñanza, 
+                        es una visión para el futuro de la acuacultura sostenible."
+                    </div>
+                    
+                    <p>Implemento metodologías activas que incluyen aprendizaje basado en proyectos, estudios de caso reales de la industria acuícola, y el uso de simulaciones computacionales para modelar sistemas complejos. Esta aproximación permite a los estudiantes desarrollar competencias técnicas mientras comprenden el impacto social y ambiental de su trabajo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trabajos destacados de estudiantes -->
+        <section class="student-work-section">
+            <div class="container">
+                <h2 class="section-title">Trabajos Destacados de Estudiantes</h2>
+                <p class="text-center">Proyectos sobresalientes desarrollados por estudiantes bajo mi tutoría</p>
+                
+                <div class="work-grid">
+                    <div class="work-card">
+                        <div class="work-image" style="background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);"></div>
+                        <div class="work-info">
+                            <div class="work-title">Modelo Predictivo de Calidad de Agua</div>
+                            <div class="work-student">Carlos Rodríguez | Bioinformática Aplicada</div>
+                            <div class="work-description">Sistema basado en machine learning para predecir parámetros de calidad de agua en granjas camaroneras.</div>
+                            <a href="#" class="btn btn-outline">Ver proyecto</a>
+                        </div>
+                    </div>
+                    
+                    <div class="work-card">
+                        <div class="work-image" style="background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);"></div>
+                        <div class="work-info">
+                            <div class="work-title">Atlas Digital de Fitoplancton</div>
+                            <div class="work-student">María González | Planctonología</div>
+                            <div class="work-description">Herramienta interactiva para identificación de especies planctónicas con imágenes microscópicas y datos ecológicos.</div>
+                            <a href="#" class="btn btn-outline">Ver proyecto</a>
+                        </div>
+                    </div>
+                    
+                    <div class="work-card">
+                        <div class="work-image" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);"></div>
+                        <div class="work-info">
+                            <div class="work-title">Sistema Experto para Diagnóstico de Enfermedades</div>
+                            <div class="work-student">Luis Pérez | Sistemas Expertos</div>
+                            <div class="work-description">Prototipo de sistema de diagnóstico temprano de enfermedades en peces de cultivo utilizando técnicas de IA.</div>
+                            <a href="#" class="btn btn-outline">Ver proyecto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/img/logo.svg" alt="Logo portafolio" width="120" height="32">
+                    <p>Portafolio profesional de Morillo Rojas José Gregorio</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="docencia.html">Docencia</a></li>
+                        <li><a href="investigacion.html">Investigación</a></li>
+                        <li><a href="publicaciones.html">Publicaciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <address>
+                        <p>Escuela de Ciencias Aplicadas del Mar</p>
+                        <p>Universidad de Oriente</p>
+                        <p>Email: <a href="mailto:josemorillo@udo.edu.ve">josemorillo@udo.edu.ve</a></p>
+                    </address>
+                </div>
+                <div class="footer-social">
+                    <h4>Redes académicas</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="#" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; <span id="year"></span> Morillo Rojas José Gregorio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome (carga diferida) -->
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous" defer></script>
+    
+    <!-- JavaScript principal -->
+    <script src="../assets/js/main.js" defer></script>
+    
+    <script>
+        // Animación para las tarjetas de asignaturas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Actualizar año en el footer
+            const yearElement = document.getElementById('year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+            
+            // Funcionalidad de pestañas
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const courseCards = document.querySelectorAll('.course-card');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase activa de todos los botones
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Agregar clase activa al botón clickeado
+                    this.classList.add('active');
+                    
+                    // Filtrar cursos (en una implementación real, aquí se filtrarían)
+                    const filter = this.textContent.toLowerCase();
+                    console.log(`Filtrando por: ${filter}`);
+                    
+                    // Simulación: en una implementación real se mostrarían solo los cursos del nivel seleccionado
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigación | MSc. Morillo Rojas José Gregorio - Docente e Investigador</title>
+    
+    <!-- Preload -->
+    <link rel="preload" href="assets/css/normalize.css" as="style">
+    <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="assets/css/responsive.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos específicos para investigación */
+        .research-hero {
+            background: linear-gradient(135deg, #0c2461 0%, #1e3799 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .research-hero h1 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .research-hero p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .research-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+        
+        .research-lines {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        .lines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        
+        .line-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .line-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .line-header {
+            padding: 1.8rem;
+            background: #2c3e50;
+            color: white;
+            flex-grow: 1;
+        }
+        
+        .line-header h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .line-icon {
+            font-size: 1.8rem;
+            color: #3498db;
+        }
+        
+        .line-body {
+            padding: 1.8rem;
+        }
+        
+        .line-description {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .line-keywords {
+            margin-top: 1.5rem;
+        }
+        
+        .keywords-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+        
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        
+        .keyword {
+            background: #e1f0fa;
+            color: #2c3e50;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .projects-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .projects-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .tab-button {
+            padding: 0.8rem 1.8rem;
+            background: white;
+            border: 2px solid #3498db;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active, .tab-button:hover {
+            background: #3498db;
+            color: white;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #3498db;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .project-header {
+            padding: 1.5rem;
+            background: white;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .project-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .project-body {
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .project-description {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .project-objectives {
+            margin-bottom: 1.5rem;
+        }
+        
+        .objectives-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+        
+        .objectives-list {
+            padding-left: 1.5rem;
+        }
+        
+        .objectives-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-footer {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-right: 1rem;
+            color: #3498db;
+            font-weight: 500;
+        }
+        
+        .project-links a:hover {
+            color: #2980b9;
+        }
+        
+        .project-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-ongoing {
+            background: #e1f0fa;
+            color: #3498db;
+        }
+        
+        .status-completed {
+            background: #e1f7e9;
+            color: #27ae60;
+        }
+        
+        .publications-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        .publications-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .publication-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .publication-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .publication-authors {
+            color: #7f8c8d;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+        
+        .publication-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .publication-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .publication-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #e1f0fa;
+            border-radius: 4px;
+            color: #3498db;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .publication-links a:hover {
+            background: #3498db;
+            color: white;
+        }
+        
+        .collaborations-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .collaborations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+            justify-items: center;
+            align-items: center;
+        }
+        
+        .collaboration-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            max-height: 80px;
+            max-width: 100%;
+        }
+        
+        .collaboration-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        @media (max-width: 992px) {
+            .research-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .lines-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .research-stats {
+                gap: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/img/logo.svg" alt="Logo portafolio" width="150" height="40">
+                </a>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="docencia.html" class="nav-link">Docencia</a></li>
+                    <li class="nav-item"><a href="investigacion.html" class="nav-link active">Investigación</a></li>
+                    <li class="nav-item"><a href="publicaciones.html" class="nav-link">Publicaciones</a></li>
+                    <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section para Investigación -->
+        <section class="research-hero">
+            <div class="container">
+                <h1>Investigación Científica</h1>
+                <p>Explorando la intersección entre la biología marina, la acuacultura y la informática para desarrollar soluciones innovadoras y sostenibles para los ecosistemas acuáticos.</p>
+                
+                <div class="research-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Proyectos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Publicaciones</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Colaboraciones</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Líneas de investigación</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Líneas de investigación -->
+        <section class="research-lines">
+            <div class="container">
+                <h2 class="section-title">Líneas de Investigación</h2>
+                
+                <div class="lines-grid">
+                    <!-- Línea 1 -->
+                    <div class="line-card fade-in">
+                        <div class="line-header">
+                            <h3><i class="fas fa-laptop-code line-icon"></i> Bioinformática Aplicada a la Acuacultura</h3>
+                        </div>
+                        <div class="line-body">
+                            <div class="line-description">
+                                <p>Desarrollo de herramientas computacionales para el análisis de datos biológicos en sistemas acuícolas, incluyendo secuenciación genómica, expresión génica y metagenómica de microbiomas acuáticos.</p>
+                            </div>
+                            
+                            <div class="line-keywords">
+                                <div class="keywords-title">Palabras clave:</div>
+                                <div class="keywords-list">
+                                    <span class="keyword">Bioinformática</span>
+                                    <span class="keyword">Genómica</span>
+                                    <span class="keyword">Machine Learning</span>
+                                    <span class="keyword">Metagenómica</span>
+                                    <span class="keyword">Biología computacional</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Línea 2 -->
+                    <div class="line-card fade-in delay-1">
+                        <div class="line-header">
+                            <h3><i class="fas fa-robot line-icon"></i> Sistemas Expertos para Gestión Acuícola</h3>
+                        </div>
+                        <div class="line-body">
+                            <div class="line-description">
+                                <p>Diseño e implementación de sistemas basados en conocimiento para la toma de decisiones en granjas acuícolas, incluyendo diagnóstico de enfermedades, optimización de alimentación y gestión de calidad de agua.</p>
+                            </div>
+                            
+                            <div class="line-keywords">
+                                <div class="keywords-title">Palabras clave:</div>
+                                <div class="keywords-list">
+                                    <span class="keyword">Inteligencia Artificial</span>
+                                    <span class="keyword">Sistemas expertos</span>
+                                    <span class="keyword">Diagnóstico automatizado</span>
+                                    <span class="keyword">Optimización</span>
+                                    <span class="keyword">IoT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Línea 3 -->
+                    <div class="line-card fade-in delay-2">
+                        <div class="line-header">
+                            <h3><i class="fas fa-water line-icon"></i> Ecología del Plancton y Cambio Climático</h3>
+                        </div>
+                        <div class="line-body">
+                            <div class="line-description">
+                                <p>Estudio de las comunidades planctónicas en ecosistemas costeros tropicales y su respuesta a los cambios ambientales, con énfasis en floraciones algales nocivas y su relación con parámetros fisicoquímicos.</p>
+                            </div>
+                            
+                            <div class="line-keywords">
+                                <div class="keywords-title">Palabras clave:</div>
+                                <div class="keywords-list">
+                                    <span class="keyword">Planctonología</span>
+                                    <span class="keyword">Cambio climático</span>
+                                    <span class="keyword">Floraciones algales</span>
+                                    <span class="keyword">Ecología acuática</span>
+                                    <span class="keyword">Monitoreo ambiental</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Línea 4 -->
+                    <div class="line-card fade-in delay-3">
+                        <div class="line-header">
+                            <h3><i class="fas fa-flask line-icon"></i> Bioquímica de Especies Acuícolas</h3>
+                        </div>
+                        <div class="line-body">
+                            <div class="line-description">
+                                <p>Investigación de los procesos bioquímicos en especies de interés acuícola, con enfoque en metabolismo nutricional, estrés oxidativo y desarrollo de dietas funcionales para mejorar la salud y el crecimiento.</p>
+                            </div>
+                            
+                            <div class="line-keywords">
+                                <div class="keywords-title">Palabras clave:</div>
+                                <div class="keywords-list">
+                                    <span class="keyword">Bioquímica acuática</span>
+                                    <span class="keyword">Nutrición acuícola</span>
+                                    <span class="keyword">Metabolismo</span>
+                                    <span class="keyword">Estrés oxidativo</span>
+                                    <span class="keyword">Alimentos funcionales</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Línea 5 -->
+                    <div class="line-card fade-in delay-4">
+                        <div class="line-header">
+                            <h3><i class="fas fa-chart-line line-icon"></i> Modelado de Ecosistemas Acuáticos</h3>
+                        </div>
+                        <div class="line-body">
+                            <div class="line-description">
+                                <p>Desarrollo de modelos matemáticos y computacionales para simular la dinámica de ecosistemas acuáticos, evaluar impactos antropogénicos y predecir escenarios futuros bajo diferentes condiciones climáticas.</p>
+                            </div>
+                            
+                            <div class="line-keywords">
+                                <div class="keywords-title">Palabras clave:</div>
+                                <div class="keywords-list">
+                                    <span class="keyword">Modelado ecológico</span>
+                                    <span class="keyword">Simulación</span>
+                                    <span class="keyword">Dinámica de sistemas</span>
+                                    <span class="keyword">Análisis predictivo</span>
+                                    <span class="keyword">Sostenibilidad</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos de investigación -->
+        <section class="projects-section">
+            <div class="container">
+                <h2 class="section-title">Proyectos de Investigación</h2>
+                
+                <div class="projects-tabs">
+                    <div class="tab-button active">Todos</div>
+                    <div class="tab-button">En curso</div>
+                    <div class="tab-button">Finalizados</div>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Proyecto 1 -->
+                    <div class="project-card fade-in">
+                        <div class="project-header">
+                            <div class="project-title">Sistema Experto para el Monitoreo de Calidad de Agua en Granjas Camaroneras</div>
+                            <div class="project-meta">
+                                <div class="project-meta-item">
+                                    <i class="fas fa-calendar-alt"></i> 2022 - Presente
+                                </div>
+                                <div class="project-meta-item">
+                                    <i class="fas fa-tag"></i> Sistemas expertos, IoT
+                                </div>
+                                <div class="project-meta-item">
+                                    <i class="fas fa-university"></i> Universidad de Oriente
+                                </div>
+                            </div>
+                            <div class="project-status status-ongoing">En curso</div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-description">
+                                <p>Desarrollo de un sistema inteligente que integra sensores IoT y algoritmos de machine learning para monitorear en tiempo real parámetros de calidad de agua y predecir eventos críticos en granjas camaroneras.</p>
+                            </div>
+                            
+                            <div class="project-objectives">
+                                <div class="objectives-title">Objetivos:</div>
+                                <ul class="objectives-list">
+                                    <li>Reducir pérdidas por enfermedades relacionadas con calidad de agua</li>
+                                    <li>Optimizar el uso de recursos (agua, energía, alimentos)</li>
+                                    <li>Desarrollar algoritmos predictivos para eventos críticos</li>
+                                    <li>Crear una plataforma accesible para pequeños productores</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="#"><i class="fas fa-file-pdf"></i> Propuesta</a>
+                                <a href="#"><i class="fab fa-github"></i> Repositorio</a>
+                                <a href="#"><i class="fas fa-chart-bar"></i> Dashboard</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Proyecto 2 -->
+                    <div class="project-card fade-in delay-1">
+                        <div class="project-header">
+                            <div class="project-title">Análisis Genómico de Resistencia a Enfermedades en Peces Nativos</div>
+                            <div class="project-meta">
+                                <div class="project-meta-item">
+                                    <i class="fas fa-calendar-alt"></i> 2020 - 2023
+                                </div>
+                                <div class="project-meta-item">
+                                    <i class="fas fa-tag"></i> Genómica, Bioinformática
+                                </div>
+                                <div class="project-meta-item">
+                                    <i class="fas fa-university"></i> CONICIT, UDO
+                                </div>
+                            </div>
+                            <div class="project-status status-completed">Finalizado</div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-description">
+                                <p>Investigación que aplicó técnicas de secuenciación de última generación y análisis bioinformático para identificar marcadores genéticos asociados a resistencia a enfermedades en especies de peces nativos con potencial acuícola.</p>
+                            </div>
+                            
+                            <div class="project-objectives">
+                                <div class="objectives-title">Objetivos:</div>
+                                <ul class="objectives-list">
+                                    <li>Identificar genes asociados a resistencia a patógenos comunes</li>
+                                    <li>Desarrollar marcadores moleculares para programas de selección</li>
+                                    <li>Crear una base de datos genómica de especies nativas</li>
+                                    <li>Establecer protocolos de análisis para especies no modelo</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="#"><i class="fas fa-file-pdf"></i> Reporte final</a>
+                                <a href="#"><i class="fas fa-database"></i> Base de datos</a>
+                                <a href="#"><i class="fas fa-book"></i> Publicación</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Proyecto 3 -->
+                    <div class="project-card fade-in delay-2">
+                        <div class="project-header">
+                            <div class="project-title">Modelado Predictivo de Floraciones Algales Nocivas en Costas Venezolanas</div>
+                            <div class="project-meta">
+                                <div class="project-meta-item">
+                                    <i class="fas fa-calendar-alt"></i> 2021 - Presente
+                                </div>
+                                <div class="project-meta-item">
+                                    <i class="fas fa-tag"></i> Plancton, Modelado, Cambio climático
+                                </div>
+                                <div class="project-meta-item">
+                                    <i class="fas fa-university"></i> UDO, Universidad de Barcelona
+                                </div>
+                            </div>
+                            <div class="project-status status-ongoing">En curso</div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-description">
+                                <p>Desarrollo de un modelo predictivo que integra datos oceanográficos, meteorológicos y biológicos para predecir floraciones algales nocivas en zonas costeras del oriente venezolano, con aplicación para la acuacultura y salud pública.</p>
+                            </div>
+                            
+                            <div class="project-objectives">
+                                <div class="objectives-title">Objetivos:</div>
+                                <ul class="objectives-list">
+                                    <li>Identificar factores desencadenantes de floraciones nocivas</li>
+                                    <li>Crear un sistema de alerta temprana para el sector acuícola</li>
+                                    <li>Evaluar impacto del cambio climático en frecuencia e intensidad</li>
+                                    <li>Desarrollar una plataforma web de monitoreo</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-links">
+                                <a href="#"><i class="fas fa-file-pdf"></i> Propuesta</a>
+                                <a href="#"><i class="fas fa-map-marked-alt"></i> Mapa interactivo</a>
+                                <a href="#"><i class="fas fa-code"></i> Modelo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publicaciones destacadas -->
+        <section class="publications-section">
+            <div class="container">
+                <h2 class="section-title">Publicaciones Destacadas</h2>
+                
+                <div class="publications-container">
+                    <!-- Publicación 1 -->
+                    <div class="publication-item fade-in">
+                        <div class="publication-title">Desarrollo de un sistema experto basado en reglas para el diagnóstico de enfermedades en camarones cultivados</div>
+                        <div class="publication-authors">González, M., Morillo, J., Pérez, L. (2023)</div>
+                        <div class="publication-meta">
+                            <div><i class="fas fa-book"></i> Aquaculture Engineering, 64, 102-115</div>
+                            <div><i class="fas fa-quote-right"></i> Factor de impacto: 3.8</div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Ver en ScienceDirect</a>
+                            <a href="#"><i class="fas fa-file-pdf"></i> PDF completo</a>
+                            <a href="#"><i class="fas fa-code"></i> Repositorio</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Publicación 2 -->
+                    <div class="publication-item fade-in delay-1">
+                        <div class="publication-title">Análisis metagenómico de microbiomas intestinales en peces nativos: correlación con dietas funcionales</div>
+                        <div class="publication-authors">Morillo J., Rodríguez, C., Fernández, A. (2022)</div>
+                        <div class="publication-meta">
+                            <div><i class="fas fa-book"></i> Journal of Applied Aquaculture, 34(3), 245-262</div>
+                            <div><i class="fas fa-quote-right"></i> Factor de impacto: 2.5</div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Ver en Taylor & Francis</a>
+                            <a href="#"><i class="fas fa-file-pdf"></i> PDF completo</a>
+                            <a href="#"><i class="fas fa-database"></i> Datos</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Publicación 3 -->
+                    <div class="publication-item fade-in delay-2">
+                        <div class="publication-title">Modelo predictivo de floraciones de microalgas nocivas utilizando machine learning y datos oceanográficos</div>
+                        <div class="publication-authors">Morillo J., Martínez, R., López, J. (2021)</div>
+                        <div class="publication-meta">
+                            <div><i class="fas fa-book"></i> Ecological Modelling, 452, 109591</div>
+                            <div><i class="fas fa-quote-right"></i> Factor de impacto: 3.9</div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Ver en Elsevier</a>
+                            <a href="#"><i class="fas fa-file-pdf"></i> PDF completo</a>
+                            <a href="#"><i class="fas fa-chart-line"></i> Visualizador</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Publicación 4 -->
+                    <div class="publication-item fade-in delay-3">
+                        <div class="publication-title">Integración de sensores IoT y análisis de datos para la optimización de la calidad de agua en acuicultura</div>
+                        <div class="publication-authors">Pérez, L., Morillo J., González, M. (2020)</div>
+                        <div class="publication-meta">
+                            <div><i class="fas fa-book"></i> Aquacultural Engineering, 91, 102107</div>
+                            <div><i class="fas fa-quote-right"></i> Factor de impacto: 3.8</div>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Ver en ScienceDirect</a>
+                            <a href="#"><i class="fas fa-file-pdf"></i> PDF completo</a>
+                            <a href="#"><i class="fas fa-cogs"></i> Protocolo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="publicaciones.html" class="btn btn-primary">Ver todas las publicaciones</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Colaboraciones -->
+        <section class="collaborations-section">
+            <div class="container">
+                <h2 class="section-title">Colaboraciones Institucionales</h2>
+                <p class="text-center">Instituciones con las que he colaborado en proyectos de investigación</p>
+                
+                <div class="collaborations-grid">
+                    <img src="assets\img\320px-logo-udo.png" alt="Universidad de Oriente" class="collaboration-logo">
+                    <img src="assets\img\320px-logo-ivic.png" alt="IVIC" class="collaboration-logo">
+                    <img src="assets\img\320px-logo-inea.png" alt="INIA" class="collaboration-logo">
+                    <img src="assets\img\320px-logo-ub.png" alt="Universidad de Barcelona" class="collaboration-logo">
+                    <img src="assets\img\320px-logo-unam.png" alt="UNAM" class="collaboration-logo">
+                    <img src="assets\img\320px-logo-lasalle.png" alt="Fundación La Salle" class="collaboration-logo">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/img/logo.svg" alt="Logo portafolio" width="120" height="32">
+                    <p>Portafolio profesional de Morillo Rojas José Gregorio</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="docencia.html">Docencia</a></li>
+                        <li><a href="investigacion.html">Investigación</a></li>
+                        <li><a href="publicaciones.html">Publicaciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <address>
+                        <p>Escuela de Ciencias Aplicadas del Mar</p>
+                        <p>Universidad de Oriente</p>
+                        <p>Email: <a href="mailto:josemorillo@udo.edu.ve">josemorillo@udo.edu.ve</a></p>
+                    </address>
+                </div>
+                <div class="footer-social">
+                    <h4>Redes académicas</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="#" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; <span id="year"></span> Morillo Rojas José Gregorio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome (carga diferida) -->
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous" defer></script>
+    
+    <!-- JavaScript principal -->
+    <script src="../assets/js/main.js" defer></script>
+    
+    <script>
+        // Animación para las tarjetas de investigación
+        document.addEventListener('DOMContentLoaded', function() {
+            // Actualizar año en el footer
+            const yearElement = document.getElementById('year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+            
+            // Funcionalidad de pestañas para proyectos
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase activa de todos los botones
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Agregar clase activa al botón clickeado
+                    this.classList.add('active');
+                    
+                    // Filtrar proyectos (en una implementación real, aquí se filtrarían)
+                    const filter = this.textContent.toLowerCase();
+                    console.log(`Filtrando proyectos por: ${filter}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

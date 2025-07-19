@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio profesional de José gregorio Morillo Rojas, docente e investigador en Biología Marina e Informática">
+    <title>Msc. José Gregorio Morillo Rojas | Docente e Investigador en Acuacultura</title>
+    
+    <!-- Preload -->
+    <link rel="preload" href="assets/css/normalize.css" as="style">
+    <link rel="preload" href="assets/css/main.css" as="style">
+    <link rel="preload" href="assets/css/responsive.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Preconectar a CDNs -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://kit.fontawesome.com">
+</head>
+<body>
+    <!-- Header igual que antes -->
+    
+    <main class="main">
+        <!-- Hero Section mejorada para mobile -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Msc. José Gregorio Morillo Rojas</h1>
+                        <p class="hero-subtitle">Docente e Investigador en Acuacultura</p>
+                        <p class="hero-description">
+                            Licenciado en Biología Marina y en Informática, apasionado por la integración de tecnologías digitales 
+                            en la investigación acuícola.
+                        </p>
+                        <div class="hero-cta">
+                            <a href="contacto.html" class="btn btn-primary">Contactar</a>
+                            <a href="assets/pdf/cv.pdf" class="btn btn-secondary" download>Descargar CV</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="assets/img/avatar.jpg" alt="Foto profesional de José Gregorio Morillo Rojas" 
+                             width="400" height="500" loading="lazy"
+                             srcset="assets/img/avatar-400.jpg 400w,
+                                     assets/img/avatar-800.jpg 800w"
+                             sizes="(max-width: 768px) 100vw, 50vw">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección "Sobre Mí" optimizada para móviles -->
+        <section class="about">
+            <div class="container">
+                <h2 class="section-title">Sobre Mí</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Formación Académica</h3>
+                        <ul class="education-list">
+                            <li>Lic. en Biología Marina – Universidad de Oriente - Escuela de Ciencias Aplicadas del Mar ECAM (2002)</li>
+                            <li>Lic. en Informática – Universidad de Oriente - Escuela de Ingenieria y Ciencias Aplicadas EICA (2007)</li>
+                            <li>Maestría/Doctorado en Ciencias Marinas Mención Biología Marina – Universidad de Oriente - Instituto Oceanográfico de Venezuela (2024)</li>
+                        </ul>
+                        
+                        <h3>Áreas de Especialización</h3>
+                        <div class="specializations">
+                            <div class="specialization-card">
+                                <div class="spec-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <h4>Bioquímica aplicada</h4>
+                                <p>Metabolismo de especies acuícolas y análisis de calidad de agua</p>
+                            </div>
+                            <div class="specialization-card">
+                                <div class="spec-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <h4>Bioinformática</h4>
+                                <p>Análisis de datos ecológicos con Python/R y Machine Learning</p>
+                            </div>
+                            <div class="specialization-card">
+                                <div class="spec-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <h4>Sistemas expertos</h4>
+                                <p>Desarrollo de herramientas para gestión acuícola</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destacados con grid responsivo -->
+        <section class="highlights">
+            <div class="container">
+                <h2 class="section-title">Destacados</h2>
+                <div class="highlight-grid">
+                    <article class="highlight-card">
+                        <div class="card-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>Docencia</h3>
+                        <p>Impartición de asignaturas interdisciplinarias que combinan ciencias marinas e informática</p>
+                        <a href="docencia.html" class="btn btn-outline">Ver más</a>
+                    </article>
+                    <article class="highlight-card">
+                        <div class="card-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3>Investigación</h3>
+                        <p>Proyectos innovadores en acuacultura sostenible y análisis de datos</p>
+                        <a href="investigacion.html" class="btn btn-outline">Ver más</a>
+                    </article>
+                    <article class="highlight-card">
+                        <div class="card-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Publicaciones</h3>
+                        <p>Artículos científicos y materiales educativos disponibles</p>
+                        <a href="publicaciones.html" class="btn btn-outline">Ver más</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer igual que antes -->
+
+    <!-- Font Awesome (carga diferida) -->
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous" defer></script>
+    
+    <!-- JavaScript principal -->
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>
